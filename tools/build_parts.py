@@ -36,16 +36,20 @@ TIERS = [
     "sylveon"
 ]
 
-CANVAS = 512
-FILL = 0.92                      # 与 normalize_assets.py 保持一致
+CANVAS = 512                      # 仅作默认值，实际以读到的图片尺寸为准
+FILL = 0.92                      # 与 normalize_assets.py / game.js ASSET_FILL 保持一致
 SCALE = CANVAS * FILL / 2.0      # 画布像素 → r 单位的换算系数
 
 
 def find_sprite(i):
-    p = os.path.join(OUT, "%02d-%s.png" % (i, TIERS[i - 1]))
-    print("查找：", p)
-    print("是否存在：", os.path.exists(p))
-    return p if os.path.exists(p) else None
+    # 游戏实际加载的是 .webp（带透明通道）；.png 多半是无透明的白底图，不能用来算轮廓
+    for ext in (".webp", ".png"):
+        p = os.path.join(OUT, "%02d-%s%s" % (i, TIERS[i - 1], ext))
+        print("查找：", p)
+        print("是否存在：", os.path.exists(p))
+        if os.path.exists(p):
+            return p
+    return None
 
 
 def euclid_dt(mask):
@@ -185,6 +189,9 @@ def fill_gaps(mask, dt, circles, budget, min_r, target=0.97):
 def build(i, grid, min_fill, max_parts):
     path = find_sprite(i)
     im = Image.open(path).convert("RGBA")
+    global CANVAS, SCALE
+    CANVAS = im.size[0]                      # 画布尺寸以实际贴图为准（webp 是 600x600）
+    SCALE = CANVAS * FILL / 2.0
     alpha = np.asarray(im)[:, :, 3]
     mask = alpha > 128
 

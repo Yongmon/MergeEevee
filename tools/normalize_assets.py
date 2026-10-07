@@ -24,9 +24,19 @@ SIZE = 512            # 输出画布边长
 FILL = 0.92           # 主体最长边占画布比例
 MAX_ITER = 4000
 
-TIERS = ["grape", "cherry", "orange", "lemon", "kiwi",
-         "tomato", "peach", "pineapple", "coconut", "halfmelon", "watermelon"]
-
+TIERS = [
+    "eevee",
+    "vaporeon",
+    "jolteon",
+    "flareon",
+    "espeon",
+    "umbreon",
+    "leafeon",
+    "glaceon",
+    "sylveon",
+    "xxxxx",
+    "xxxxx"
+]
 # 每张图的抠底参数：tol = 相邻像素色差阈值
 #   浅色背景 → 用饱和度闸门 sat_max（更高饱和度的像素不许当背景）
 #   深色背景 → 用亮度闸门   lum_min（更亮的像素不许当背景）

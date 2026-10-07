@@ -52,23 +52,23 @@
 
   const FRUITS = [
     { name: '伊布',   r: 17,  c1: '#c084f5', c2: '#7a3fb0', line: 'rgba(74,26,120,.35)',
-      file: 'assets/fruits/01-eevee.webp',     pc1: '#e9c466', pc2: '#b8903a' },
+      file: 'assets/fruits/01-eevee.webp',     pc1: '#e2ab34', pc2: '#674d14' },
     { name: '水伊布',   r: 23,  c1: '#ff8a99', c2: '#c62346', line: 'rgba(120,10,40,.35)',
-      file: 'assets/fruits/02-vaporeon.webp',    pc1: '#ffe684', pc2: '#d8b44f' },
+      file: 'assets/fruits/02-vaporeon.webp',    pc1: '#88d4d9', pc2: '#3d6164' },
     { name: '火伊布',   r: 31,  c1: '#ffc06a', c2: '#e0741a', line: 'rgba(140,62,0,.32)',
-      file: 'assets/fruits/03-flareon.webp',    pc1: '#fdd865', pc2: '#cfa63f' },
+      file: 'assets/fruits/03-flareon.webp',    pc1: '#ffd98c', pc2: '#796640' },
     { name: '雷伊布',   r: 39,  c1: '#fff285', c2: '#e0b000', line: 'rgba(140,110,0,.32)',
-      file: 'assets/fruits/04-jolteon.webp',     pc1: '#f6cd63', pc2: '#c9a040' },
+      file: 'assets/fruits/04-jolteon.webp',     pc1: '#f4d642', pc2: '#70611a' },
     { name: '太阳伊布', r: 48,  c1: '#b9e05a', c2: '#5d8c1c', line: 'rgba(60,90,10,.32)',
-      file: 'assets/fruits/05-espeon.webp',      pc1: '#c4a559', pc2: '#94793c' },
+      file: 'assets/fruits/05-espeon.webp',      pc1: '#fae8ff', pc2: '#736a75' },
     { name: '月亮伊布',   r: 58,  c1: '#ff8a66', c2: '#c62f28', line: 'rgba(120,20,10,.32)',
-      file: 'assets/fruits/06-umbreon.webp',    pc1: '#fbd75a', pc2: '#cba63c' },
+      file: 'assets/fruits/06-umbreon.webp',    pc1: '#656a59', pc2: '#2e3028' },
     { name: '叶伊布',   r: 69,  c1: '#ffd0d0', c2: '#ea7f93', line: 'rgba(160,60,80,.3)',
-      file: 'assets/fruits/07-leafeon.webp',     pc1: '#f7c45a', pc2: '#c99a3e' },
+      file: 'assets/fruits/07-leafeon.webp',     pc1: '#b8e297', pc2: '#536743' },
     { name: '冰伊布',   r: 81,  c1: '#ffe07a', c2: '#c88a12', line: 'rgba(130,80,0,.32)',
-      file: 'assets/fruits/08-glaceon.webp', pc1: '#ffd37b', pc2: '#d1a252' },
+      file: 'assets/fruits/08-glaceon.webp', pc1: '#76d6f4', pc2: '#336170' },
     { name: '仙子伊布',   r: 94,  c1: '#f0e2c6', c2: '#9b7b4f', line: 'rgba(90,64,32,.35)',
-      file: 'assets/fruits/09-sylveon.webp',   pc1: '#ffd771', pc2: '#d3a94e' }
+      file: 'assets/fruits/09-sylveon.webp',   pc1: '#fae0f6', pc2: '#736671' }
 
   ];
 
@@ -827,7 +827,6 @@
 
     /* —— 贴图模式：主体直接画 PNG，画布边长按 ASSET_FILL 换算，保证视觉大小 = 物理直径 —— */
     if (f.img) {
-      console.log("图片加载成功：", f.name);
       const box = (r * 2) / ASSET_FILL;
       c.drawImage(f.img, -box / 2, -box / 2, box, box);
       c.restore();
